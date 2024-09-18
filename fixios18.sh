@@ -2,7 +2,7 @@
 
 # 定义要查找的文件路径
 FILE="./ios/.symlinks/plugins/flutter_inappwebview_ios/ios/Classes/InAppWebView/InAppWebView.swift"
-FILE2="$HOME/.pub-cache/hosted/pub.flutter-io.cn/flutter_inappwebview_ios-1.0.13/ios/Classes/InAppWebView/InAppWebView.swift"
+BASE_DIR="$HOME/.pub-cache/hosted/pub.flutter-io.cn/flutter_inappwebview_ios"
 
 # 定义一个函数来处理文件修改逻辑
 modify_file() {
@@ -31,6 +31,11 @@ modify_file() {
     fi
 }
 
-# 修改 FILE 和 FILE2
+# 修改 ./ios/.symlinks 下的文件
 modify_file "$FILE"
-modify_file "$FILE2"
+
+# 遍历 .pub-cache/hosted/pub.flutter-io.cn/flutter_inappwebview_ios 目录中的所有版本
+for dir in "$BASE_DIR"-*; do
+    FILE_PATH="$dir/ios/Classes/InAppWebView/InAppWebView.swift"
+    modify_file "$FILE_PATH"
+done
