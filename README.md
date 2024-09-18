@@ -5,9 +5,7 @@
 
 
 
-for English : 
-
-# fixios18
+# for English : 
 Fixed iOS 18 xcode, simulator upgrade 16.0, running flutter error
 
 Execute the project in the flutter root path, automatically replace the flutter_inappwebview library error
