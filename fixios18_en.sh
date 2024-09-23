@@ -1,7 +1,16 @@
 #!/bin/bash
 
+# Get the absolute path of the directory where the current script is located
+script_path=$(
+    cd "$(dirname "$0")"
+    pwd
+)
+
+# Project root directory
+workspace_dir=$(dirname "$(dirname "$script_path")")
+
 # Define the file path to be searched
-FILE="./ios/.symlinks/plugins/flutter_inappwebview_ios/ios/Classes/InAppWebView/InAppWebView.swift"
+FILE="$workspace_dir/ios/.symlinks/plugins/flutter_inappwebview_ios/ios/Classes/InAppWebView/InAppWebView.swift"
 BASE_DIR="$HOME/.pub-cache/hosted/pub.flutter-io.cn/flutter_inappwebview_ios"
 
 # Define a function to handle file modification logic

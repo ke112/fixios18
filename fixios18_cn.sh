@@ -1,7 +1,16 @@
 #!/bin/bash
 
+# 获取当前脚本所在目录的绝对路径
+script_path=$(
+    cd "$(dirname "$0")"
+    pwd
+)
+
+# 工程根目录
+workspace_dir=$(dirname "$(dirname "$script_path")")
+
 # 定义要查找的文件路径
-FILE="./ios/.symlinks/plugins/flutter_inappwebview_ios/ios/Classes/InAppWebView/InAppWebView.swift"
+FILE="$workspace_dir/ios/.symlinks/plugins/flutter_inappwebview_ios/ios/Classes/InAppWebView/InAppWebView.swift"
 BASE_DIR="$HOME/.pub-cache/hosted/pub.flutter-io.cn/flutter_inappwebview_ios"
 
 # 定义一个函数来处理文件修改逻辑
